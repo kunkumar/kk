@@ -1,0 +1,113 @@
+Printing list :
+List Empty
+Printing list :
+Data is 1
+Data is 2
+Data is 3
+The number of nodes in the list is 3
+Printing list :
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Printing list :
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+To compare
+The size of the lists is different :Not similar
+
+The size of the lists is different :Not similar
+
+The no of times value occurs is 7
+The index is greater than the no of nodes
+The value at index n is 12
+Printing list :
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Data is 2
+Printing list :
+List Empty
+Element not found
+Element not found in the linklist
+Count is 0
+Printing list :
+List Empty
+The data popped is 1
+Printing list :
+Data is 2
+Data is 3
+Printing list :
+List Empty
+Printing list :
+Data is 13
+Data is 1
+Data is 2
+Data is 3
+Data is 4
+Data is 5
+Data is 6
+Data is 7
+Data is 8
+Data is 9
+Data is 10
+
+
+
+
+
+
+
+
+
+Printing list :
+Data is 24
+Data is 23
+Data is 10
+Data is 14
+Data is 11
+Data is 13
+Data is 121
+Data is 10
+Data is 11
+Data is 12
+Data is 13
+Data is 14
+Data is 23
+Data is 24
+Printing list :
+Data is 10
+Data is 10
+Data is 11
+Data is 11
+Data is 12
+Data is 13
+Data is 13
+Data is 14
+Data is 14
+Data is 23
+Data is 23
+Data is 24
+Data is 24
+Data is 121
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Printing list :
+Data is 5
+Data is 4
+Data is 1
+Data is 2
+Data is 3
+Data is 7
+Data is 8
+Data is 10

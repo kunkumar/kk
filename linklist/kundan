@@ -1,0 +1,246 @@
+#ifndef LINKLIST_H
+#define LINKLIST_H
+#include <cstddef>
+
+typedef struct nodetype
+{
+	int data;
+	struct nodetype * next;
+}node;
+
+typedef node * list;
+
+class Linklist 
+{ 
+        private: 
+        //static int count; 
+        public: 
+        list _head; 
+        Linklist() 
+        { 
+                _head = NULL; 
+        } 
+
+        list build(list _head, int data); 
+        list newNode(int data); 
+        void printList(list head); 
+        static int count(list head); 
+        list insertAtBegining(list head, int data); 
+        list reverseIt(list head); 
+        list reverseRec(list head, list previous); 
+        static void compare(list head_1, list head_2); 
+        int countTimes(list head, int value); 
+        int getNth(list head, int index); 
+        void deleteList(list* head); 
+	int findElement(list head, int value);
+	void deleteNode(list *head, int value);
+	void changeToNull(list * head);
+	int pop(list * head);
+	void insertNth(list * head, int index, int value);
+	void sortedInsert(list * head, list node);
+	void insertSort(list * head);
+}; 
+
+#endif  
+#include "linklist.h" 
+#include <iostream> 
+
+using namespace std; 
+
+void Linklist::deleteList(list* head) 
+{ 
+	list * current = head;
+	while( *current != 0 ) 
+	{
+    		list nextPtr = (*current)->next;
+	    	delete *current;
+    		*current = nextPtr;
+	}
+	//*head = 0;
+} 
+#include "linklist.h" 
+#include <iostream> 
+
+using namespace std; 
+
+int Linklist::findElement(list head, int value)
+{
+	int index = 0;
+	while(head != NULL)
+	{
+	
+		if(head->data == value)
+			return index;
+
+		index++;
+
+		head = head->next;
+	}
+	
+	cout<<"Element not found\n";
+	return -1;
+}
+#include "linklist.h" 
+#include <iostream> 
+
+using namespace std; 
+
+void Linklist::deleteNode(list *head, int value)
+{
+		
+	list * current = head;
+	list * previous = head;
+	bool flag = false;
+	while(*current != NULL)
+	{
+		if((*current)->data != value)
+		{
+			*previous = *current;
+			*current = (*current)->next;
+		}
+
+		else if ((*current)->data == value)
+		{
+			flag = true;
+			(*previous)->next = (*current)->next;
+			delete *current;
+			*current = (*previous)->next;
+			
+		}
+	}
+	if(!flag)
+		cout<<"Element not found in the linklist\n";
+	cout<<"Count is "<<Linklist::count(*head)<<endl;
+}
+#include "linklist.h" 
+#include <iostream> 
+
+using namespace std; 
+
+void Linklist::changeToNull(list * head)
+{
+	*head = NULL;
+}
+#include "linklist.h" 
+#include <iostream> 
+
+using namespace std; 
+
+int Linklist::pop(list * head)
+{
+	int data;
+
+	if(*head == NULL)
+		cout<<"List is empty\n";
+
+	list * current = &((*head)->next);
+
+	if(*current != NULL)
+	{
+		data = (*head)->data;
+		delete *head;
+		*head = *current;
+		
+	}
+
+	else
+	{
+		data = (*head)->data;
+		delete *head;
+		
+	}
+
+	return data;
+}
+#include "linklist.h" 
+#include <iostream> 
+
+using namespace std; 
+
+void Linklist::insertNth(list * head, int index, int value)
+{
+	int count = 0;
+	
+	if(*head == NULL)
+	{
+		*head = newNode(value);
+		return;
+		
+	}
+
+	else if(index == 0)
+	{
+		list temp = *head;
+		*head = newNode(value);
+		(*head)->next = temp;
+	}
+	
+	else
+	{
+	list * current = head;
+
+	while((count < index-1) && (*current != NULL))
+	{
+		current = &((*current)->next);
+		count++;
+	}
+	
+	list node = newNode(value);
+	
+	if((*current)->next == NULL)
+		(*current)->next = node;
+
+	else
+	{
+		list current_next = (*current)->next;
+		(*current)->next = node;
+		node->next = current_next;
+	}
+	}
+}
+		
+#include "linklist.h" 
+#include <iostream> 
+
+using namespace std; 
+
+void Linklist::sortedInsert(list * head, list node)
+{
+	if((*head == NULL) || (((*head)->data) >= (node->data)))
+	{
+		node->next = *head;
+		*head = node;
+	}
+	
+	else if((*head)->data < node->data)
+	{
+		list current = *head;
+		list prev = *head;
+		while((current != NULL)&&((current)->data < (node->data)))
+		{
+			prev = current;
+			current = current->next;
+		}
+		
+		node->next = current;
+		(prev)->next = node;
+	}
+}
+#include "linklist.h" 
+#include <iostream> 
+
+using namespace std; 
+
+void Linklist::insertSort(list * headRef)
+{
+	list result = NULL; // build the answer here
+	list current = *headRef; // iterate over the original list
+	list next;
+	while (current!=NULL) {
+		next = current->next; // tricky - note the next pointer before we change it
+		sortedInsert(&result, current);
+		current = next;
+		}
+		*headRef = result;
+}
+	

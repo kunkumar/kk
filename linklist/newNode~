@@ -1,0 +1,12 @@
+#include "listlist.h"
+#include <iostream>
+#include <malloc.h>
+
+using namespace std;
+
+list Linklist::newNode(int data)
+{
+	list temp = (node *)malloc(sizeof(node));
+	temp->next = NULL;
+	return temp;
+}
